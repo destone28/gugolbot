@@ -17,12 +17,12 @@ public class Bot extends TelegramLongPollingBot {
 	
 	@Override
 	public String getBotUsername() {
-		return "gugol_bot";
+		return "YOUR_BOT_USERNAME";
 	}
 
 	@Override
 	public String getBotToken() { //associa token bot
-		return "486528811:AAGQpnavEl4NPe-E6QygpeC80kLfzFJ3v8s";
+		return "YOUR_BOT_TOKEN";
 	}
 
 	@SuppressWarnings("deprecation")
