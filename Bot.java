@@ -16,7 +16,7 @@ public class Bot extends TelegramLongPollingBot {
 	private File log = new File("use_log.txt");
 	
 	@Override
-	public String getBotUsername() {
+	public String getBotUsername() { //associa username bot
 		return "YOUR_BOT_USERNAME";
 	}
 
@@ -32,37 +32,10 @@ public class Bot extends TelegramLongPollingBot {
 	        	messaggio.setChatId(aggiornamento.getMessage().getChatId());
 	        	str=aggiornamento.getMessage().getFrom()+" ha scritto <<"+aggiornamento.getMessage().getText()+">> in data "+aggiornamento.getMessage().getDate()+"\n";
 	        	try {
-	        		if (log.exists()){
-	                    System.out.println("Il file " + log + " esiste");
-	                    try {
-	                        FileWriter fw = new FileWriter(log,true); //log su file, true per append
-	                        fw.append(str+"\n");
-	                        fw.flush();
-	                        fw.close();
-	                    }
-	                    catch(IOException e) {
-	                        e.printStackTrace();
-	                    }
-	        		}
-	                else if (log.createNewFile()){
-	                    System.out.println("Il file " + log + " è stato creato");
-	        		try {
-	        	        File log = new File("use_log.txt");
-	        	        FileWriter fw = new FileWriter(log,true);  //log su file, true per append
-	        	        fw.append(str+"\n");
-	        	        fw.flush();
-	        	        fw.close();
-	        	    	}
-	        	    catch(IOException e) {
-	        	        e.printStackTrace();
-	        	    	}
-	                }
-	                else
-	                    System.out.println("Il file " + log + " non può essere creato");
-	             
-	            } catch (IOException e) {
+	        		Savefile.logga();
+		            } catch (IOException e) {
 	                e.printStackTrace();
-	            }
+		            }
 	        	
 	        	System.out.println("Messaggio ricevuto da ID: "+aggiornamento.getMessage().getChatId()); //output di debug con id mittente
 	        	try {
